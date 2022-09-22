@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/mccm-mint-v1/static/css/main.7fd983d4.css",
-    "main.js": "/mccm-mint-v1/static/js/main.cadac0a1.js",
+    "main.js": "/mccm-mint-v1/static/js/main.f0dcc3f0.js",
     "static/media/backg.png": "/mccm-mint-v1/static/media/backg.ddae446afa932c18afbb.png",
     "index.html": "/mccm-mint-v1/index.html",
     "main.7fd983d4.css.map": "/mccm-mint-v1/static/css/main.7fd983d4.css.map",
-    "main.cadac0a1.js.map": "/mccm-mint-v1/static/js/main.cadac0a1.js.map"
+    "main.f0dcc3f0.js.map": "/mccm-mint-v1/static/js/main.f0dcc3f0.js.map"
   },
   "entrypoints": [
     "static/css/main.7fd983d4.css",
-    "static/js/main.cadac0a1.js"
+    "static/js/main.f0dcc3f0.js"
   ]
 }
