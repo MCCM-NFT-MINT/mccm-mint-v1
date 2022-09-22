@@ -5,7 +5,7 @@ import { Button, Input } from '@mui/material';
 import { providerOptions } from "./providerOptions";
 import mccmNFT from './MccmNFT.json';
 
-const mccmNFTAddress = "0xA7DAbee8C46ae49EE9eAdd1d870DC7c249db363a";
+const mccmNFTAddress = "0x967c0b07d13A4EB82940891C6C2393CCE3D24cbE";
 
 const web3Modal = new Web3Modal({
     network: "rinkeby", // optional
@@ -48,9 +48,9 @@ const MainMint = ({ accounts, setAccounts }) => {
     };
 
     async function handleMint() {
-        const formData = new FormData(document.getElementById('aaaa'));
-        const aa = formData.get('mintAmount');
-        console.log("aaa", aa);
+        const formData = new FormData(document.getElementById('MintMccmNumber'));
+        const UserMintAmount = formData.get('mintAmount');
+        console.log("how many user input? ", UserMintAmount);
         //const provider = await web3Modal.connect();
         //const library = new ethers.providers.Web3Provider(provider);
         const signer = library.getSigner();
@@ -60,9 +60,10 @@ const MainMint = ({ accounts, setAccounts }) => {
             signer
         );
         try {
-            console.log('bignumberaaa: ', mintAmount);
-            const response = await contract.mintMccmMeta(BigNumber.from(aa), {
-                value: ethers.utils.parseEther((0.003 * aa).toString()),
+            const UserMintAmountString = UserMintAmount.toString();
+            console.log("how many user input(BigNumber)?  ", UserMintAmountString);
+            const response = await contract.mintMccmMeta(BigNumber.from(UserMintAmountString), {
+                value: ethers.utils.parseEther((0.003 * UserMintAmountString).toString()),
             });
             console.log('response: ', response);
         } catch (err) {
@@ -84,40 +85,47 @@ const MainMint = ({ accounts, setAccounts }) => {
 
     return (
         <>
-            <table border="0">
 
-                <tr>
-                    <td rowSpan="3">
-                        <img src="https://mccm.art/wp-content/uploads/2022/09/Mark.jpg" alt="Mint" width="200px" height="200px" />
-                    </td>
-                    <td>
-                        {!account ? (
-                            <Button onClick={connectWallet} color="secondary" variant="contained">Connect Wallet</Button>
-                        ) : (
-                            <Button onClick={disconnect} color="secondary" variant="contained">Disconnect</Button>
-                        )}
 
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <input type="number" name="mintAmount" defaultValue="1" min="1" max="369" />
 
-                    </td>
-                </tr>
-                <tr>
-                    <th>
-                        <h3></h3>
-                        <form id="aaaa">
-                            <div>
+            <form id="MintMccmNumber">
+                <table border="0">
+                    <tr>
+                        <td rowSpan="3">
+                            <img src="https://mccm.art/wp-content/uploads/2022/09/Mark.jpg" alt="Mint" width="200px" height="200px" />
+                        </td>
+                        <td>
+                            {!account ? (
+                                <Button onClick={connectWallet} color="secondary" variant="contained">Connect Wallet</Button>
+                            ) : (
+                                <Button onClick={disconnect} color="secondary" variant="contained">Disconnect</Button>
+                            )}
+
+                        </td>
+                        <td rowSpan="3">
+                            <img src="https://mccm.art/wp-content/uploads/2022/09/balloon.png" alt="Mint" width="200px" height="200px" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="number" name="mintAmount" defaultValue="1" min="1" max="369" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <div>
+
+                            <td>
                                 <button onClick={handleMint} type="button">
                                     <img src="https://mccm.art/wp-content/uploads/2022/09/Mint.png" alt="Mint" width="200px" height="50px" />
                                 </button>
-                            </div>
-                        </form>
-                    </th>
-                </tr>
-            </table>
+                            </td>
+                        </div>
+                    </tr>
+                </table>
+            </form>
+
+
+
         </>
 
     )
