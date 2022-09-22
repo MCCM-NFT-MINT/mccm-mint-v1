@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/mccm-mint-v1/static/css/main.7fd983d4.css",
+    "main.js": "/mccm-mint-v1/static/js/main.4f31e789.js",
+    "static/media/backg.png": "/mccm-mint-v1/static/media/backg.ddae446afa932c18afbb.png",
+    "index.html": "/mccm-mint-v1/index.html",
+    "main.7fd983d4.css.map": "/mccm-mint-v1/static/css/main.7fd983d4.css.map",
+    "main.4f31e789.js.map": "/mccm-mint-v1/static/js/main.4f31e789.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7fd983d4.css",
+    "static/js/main.4f31e789.js"
+  ]
+}
